@@ -3,7 +3,7 @@
 }
 
 :root {
-    --color1: #e3ee69;
+    --color1: #eff6ac;
 }
 
 html, body {
@@ -25,7 +25,8 @@ html, body {
     "left left . right right";
     min-width: 800px;
     justify-content: space-around;
-    background-color: var(--color1)
+    background-color: var(--color1);
+    padding: 10px;
 }
 
 .left {
