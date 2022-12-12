@@ -1,6 +1,8 @@
 import React from "react";
 
 export class Form extends React.Component {
+    // The top level parent
+    // It renders the individual form sections
     constructor(props){
         super(props)
         this.state = {
@@ -18,12 +20,10 @@ export class Form extends React.Component {
 }
 
 class FormSection extends React.Component {
+    // This component renders multiple form elements
     constructor(props) {
         super(props)
-        this.state = {
-            name: '',
-        surname: '',
-        birth: ''}
+        this.state = {value: ''}
     }
     render() {
         return (
@@ -35,6 +35,10 @@ class FormSection extends React.Component {
 }
 
 class FormElement extends React.Component {
+    // Component handles input changes and submit clicks
+    // Renders individual input fields
+    // Passes handler functions down to child component
+
     constructor(props) {
         super(props)
         this.state = { 
@@ -63,15 +67,15 @@ class FormElement extends React.Component {
     render(){
         return (
            <div className="section">
-            <InputField 
-            section='First Name: ' 
+            <InputField // Form input 'First Name'
+            labelName='First Name: ' 
             name='firstName'
             type='text' 
             value={this.state.firstName} 
             onInput={this.handleInput} 
             submitClick={this.handleSubmit}/>
-            <InputField 
-            section='Last Name: ' 
+            <InputField // Form input 'Last Name'
+            labelName='Last Name: ' 
             name='lastName'
             type='text' 
             value={this.state.lastName} 
@@ -83,6 +87,8 @@ class FormElement extends React.Component {
 }
 
 class InputField extends React.Component {
+    // Component renders a label, an input field and a button
+
     constructor(props) {
         super(props)
         console.log(this.props)
@@ -91,8 +97,11 @@ class InputField extends React.Component {
         return (
             <div className="formEl">
             <label>
-               {this.props.section}
+                {/* Creates the label for inputs  */}
+               {this.props.labelName} 
+               {/* Wires input fields to the parent's state  */}
                 <input name={this.props.name} onChange={this.props.onInput}></input>
+                {/* Submits values to update parent's state */}
                 <input type='submit' value='Submit' onClick={this.props.submitClick}></input>
             </label>
             </div>
