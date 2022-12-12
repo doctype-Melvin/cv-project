@@ -1,34 +1,78 @@
 import React from "react";
 
 export class Form extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            first: '',
+            last: '',
+            dob: '',}
+    }
+    render() {
+        return (
+            <form className="formCt">
+                <FormSection sectionName='Personal Info'/>
+            </form>
+        )
+    }
+}
+
+class FormSection extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {value: ''}
+        this.state = {
+            name: '',
+        surname: '',
+        birth: ''}
+    }
+    render() {
+        return (
+            <div className="section">{this.props.sectionName}
+            <FormElement />
+            </div>
+        )
+    }
+}
+
+class FormElement extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = { 
+            firstName: '', 
+            lastName: '',
+        }
 
         this.handleInput = this.handleInput.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    handleInput(event) {
-        this.setState({value: event.target.value})
+    handleInput(e) {
+        const target = e.target
+        const value = target.value
+        const name = target.name
+        this.setState({
+            [name]: value,
+        })
     }
 
-    handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value)
-        event.preventDefault()
+    handleSubmit(e) {
+        console.log(this.state)
+        e.preventDefault()
     }
 
-    render() {
+    render(){
         return (
-            <div className="formCt">
-                {/* Below is an example of how to output dynamic data */}
-                { 'This message comes from Form.js render'}
-                <form className="formEl" onSubmit={this.handleSubmit}>
-                        <label>Name:
-                        <input type="text" className="input" id="name" value={this.state.value} onChange={this.handleInput} />
-                        </label>
-                        <input type="submit" value = "Submit" />
-                </form>
+            <div className="formEl">
+            <label>
+               First Name:
+                <input type='text' name='firstName' value={this.state.firstName} onChange={this.handleInput}></input>
+                <input type='submit' value='Submit' onClick={this.handleSubmit}></input>
+            </label>
+            <label>
+                Last Name:
+                <input type='text' name='lastName' value={this.state.lastName} onChange={this.handleInput}></input>
+                <input type='submit' value='Submit' onClick={this.handleSubmit}></input>
+            </label>
             </div>
         )
     }

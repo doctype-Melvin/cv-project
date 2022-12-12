@@ -36,3 +36,15 @@ html, body {
 .right {
     grid-area: right;
 }
+
+.section {
+    display: flex;
+    flex-direction: column;
+}
+
+.formEl {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
