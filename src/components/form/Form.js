@@ -62,16 +62,38 @@ class FormElement extends React.Component {
 
     render(){
         return (
+           <div className="section">
+            <InputField 
+            section='First Name: ' 
+            name='firstName'
+            type='text' 
+            value={this.state.firstName} 
+            onInput={this.handleInput} 
+            submitClick={this.handleSubmit}/>
+            <InputField 
+            section='Last Name: ' 
+            name='lastName'
+            type='text' 
+            value={this.state.lastName} 
+            onInput={this.handleInput} 
+            submitClick={this.handleSubmit}/>
+           </div>
+        )
+    }
+}
+
+class InputField extends React.Component {
+    constructor(props) {
+        super(props)
+        console.log(this.props)
+    }
+    render(){
+        return (
             <div className="formEl">
             <label>
-               First Name:
-                <input type='text' name='firstName' value={this.state.firstName} onChange={this.handleInput}></input>
-                <input type='submit' value='Submit' onClick={this.handleSubmit}></input>
-            </label>
-            <label>
-                Last Name:
-                <input type='text' name='lastName' value={this.state.lastName} onChange={this.handleInput}></input>
-                <input type='submit' value='Submit' onClick={this.handleSubmit}></input>
+               {this.props.section}
+                <input name={this.props.name} onChange={this.props.onInput}></input>
+                <input type='submit' value='Submit' onClick={this.props.submitClick}></input>
             </label>
             </div>
         )
