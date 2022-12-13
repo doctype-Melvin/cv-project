@@ -14,6 +14,7 @@ export class Form extends React.Component {
         return (
             <form className="formCt">
                 <FormSection sectionName='Personal Info'/>
+                <FormSection sectionName='SnotNose' />
             </form>
         )
     }
@@ -28,7 +29,7 @@ class FormSection extends React.Component {
     render() {
         return (
             <div className="section">{this.props.sectionName}
-            <FormElement />
+            <FormElement labelName = 'First Name:'/>
             </div>
         )
     }
