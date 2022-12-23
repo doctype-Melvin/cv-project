@@ -87,15 +87,21 @@ export default function App() {
 
     const replaceEntry = (obj, index) => {
         // obj = newData - index = editData.index[0]
+        // Preprocess the new array and set it as the entries value
+        const newObj = obj
+        const oldArray = userData.entries
+        oldArray.splice(index, 1, newObj)
         console.log(userData.entries)
         console.log(obj, index)
         console.log(userData.entry)
         setUserData(prevState => {
             return {
                 ...prevState,
-                entries: userData.entries.splice(index, 1, obj)
+                entries: oldArray
             }
         })
+        // console.log(userData.entries)
+        setEditData({})
     }
 
     const saveEdit = (e) => {
