@@ -15,6 +15,7 @@ export default function View(props) {
             data={props.data.entries}
             edit={props.editToggle}
             editSt={props.editSt}
+            deleteData={props.deleteData}
         />
     })
     return (

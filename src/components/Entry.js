@@ -6,6 +6,11 @@ export default function Entry(props){
         e.preventDefault(e)
         props.edit(props.index)
     }
+
+    const onClickDelete = (e) => {
+        e.preventDefault()
+        props.deleteData(props.index)
+    }
     // If the edit state is true
     // Place target obj data into form
     return (
@@ -23,6 +28,7 @@ export default function Entry(props){
             {props.description}
             </div>
             <button element={props.index} onClick={onBtnClick}>Edit {props.company}</button>
+            <button className="deleteBtn" onClick={onClickDelete}>Delete</button>
         </div>
     )
 }

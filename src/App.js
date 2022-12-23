@@ -58,23 +58,23 @@ export default function App() {
         e.target.reset()
     }
 
-    // State of edit mode
+    // State of edit mode - To toggle edit on/off
     const [edit, setEdit] = useState(false) 
 
     // Sets the editable object
     const [editData, setEditData] = useState({})
 
-   
     // Sets data to be edited
     const editEntry = (index) => {
         setEdit(prev => !prev) // Toggle mode
        const editThis = userData.entries[index]
        setEditData({editThis, index: [index]})
-       console.log(editData)
     }
 
+    // New data state - Replaces previous entry
     const [newData, setNewData] = useState({})
 
+    // Sets new values from inputs
     const handleEditChange = (e) => {
         const { name, value } = e.target
         setNewData(prevState => {
@@ -85,29 +85,37 @@ export default function App() {
         })
     }
 
-    const replaceEntry = (obj, index) => {
-        // obj = newData - index = editData.index[0]
-        // Preprocess the new array and set it as the entries value
-        const newObj = obj
+    const deleteEntry = (index) => {
         const oldArray = userData.entries
-        oldArray.splice(index, 1, newObj)
-        console.log(userData.entries)
-        console.log(obj, index)
-        console.log(userData.entry)
+        oldArray.splice(index, 1)
         setUserData(prevState => {
             return {
                 ...prevState,
                 entries: oldArray
             }
         })
-        // console.log(userData.entries)
+    }
+
+    // Modifies existing entries array from userData
+    const replaceEntry = (obj, index) => {
+        // Preprocess the new array and set it as the entries value
+        const oldArray = userData.entries
+        oldArray.splice(index, 1, obj)
+        setUserData(prevState => {
+            return {
+                ...prevState,
+                entries: oldArray
+            }
+        })
         setEditData({})
     }
 
+    //onSubmit fn in edit mode
     const saveEdit = (e) => {
         e.preventDefault()
         setEdit(prev => !prev)
         replaceEntry(newData, editData.index[0])
+        e.target.reset()
     }
 
     return (
@@ -127,6 +135,7 @@ export default function App() {
                 data={userData}
                 editToggle={editEntry} // fn to toggle edit state and choose object
                 editSt={edit}
+                deleteData={deleteEntry}
             />
         </div>
     )

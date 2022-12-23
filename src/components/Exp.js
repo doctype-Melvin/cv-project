@@ -43,6 +43,7 @@ export default function Exp(props) {
             </div>
         )
     } else {
+        // Render edit mode
         return (
             <div>
                 <h2>CV Entries</h2>
