@@ -2,11 +2,13 @@ import React from "react";
 
 export default function Entry(props){
 
+    // Click activates edit mode
     const onBtnClick = (e) => {
         e.preventDefault(e)
         props.edit(props.index)
     }
 
+    // Click deletes entry
     const onClickDelete = (e) => {
         e.preventDefault()
         props.deleteData(props.index)

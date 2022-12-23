@@ -5,7 +5,7 @@ import Exp from "./Exp";
 export default function Form(props) {
 
     return (
-        <div>
+        <div className="formContainer">
             <Personal 
             change={props.changePers}
             submit={props.submitPers}

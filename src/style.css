@@ -3,7 +3,12 @@
 }
 
 :root {
-    --color1: #eff6ac;
+    --white: #f2f6d5;
+    --delete: rgb(153, 25, 25);
+    --light-red: rgb(233, 54, 54);
+    --blue: rgb(76, 100, 173);
+    --light-blue: rgb(162, 176, 216);
+    --black: #000;
 }
 
 html, body {
@@ -13,7 +18,107 @@ html, body {
     margin: 0;
 }
 
+.mainContainer,
+.formContainer,
+.personalDetails > form,
+.expForm > form,
+.personalInfo {
+    display: flex;
+}
+
+.mainContainer {
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+
+.formContainer,
+.personalDetails> form,
+.expForm > form,
+.personalInfo  {
+    flex-direction: column;
+}
+
+.formContainer {
+    width: 40%
+}
+
+.viewContainer {
+    width: 75%;
+    padding: 15px 25px;
+    border: solid 2px var(--blue);
+    border-radius: 3px;
+    margin: 20px 5px;
+}
+
+.personalDetails,
+.expForm {
+    width: 60%;
+}
+
+.personalInfo {
+    align-items: center;
+    margin-bottom: 35px;
+}
+
 .entryContainer {
+    margin-bottom: 15px;
     padding: 10px;
-    background-color: aliceblue;
+}
+
+.company {
+    font-size: 21px;
+}
+
+.role {
+    font-weight: 600;
+}
+
+.date, .description {
+    margin: 5px 0;
+}
+
+.description {
+    font-size: 18px;
+    font-style: italic;
+    text-align: justify;
+}
+
+.deleteBtn {
+    color: var(--white);
+    background-color: var(--delete);
+}
+
+.deleteBtn:hover,
+button:hover {
+    cursor: pointer;
+    background-color: var(--light-blue);
+    color: var(--black);
+    transition: 0.3s;
+}
+
+.deleteBtn:hover {
+    background-color: var(--light-red);
+    color: var(--black);
+}
+
+button,
+input {
+    border: solid var(--black) 1px;
+    border-radius: 3px;
+}
+
+button {
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 5px 10px;
+    font-size: 16px;
+    margin: 10px 5px;
+}
+
+input {
+    border: solid 1px var(--black);
+    font-size: 1.1rem;
+    text-indent: 2px;
 }

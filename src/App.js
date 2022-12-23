@@ -65,6 +65,7 @@ export default function App() {
     const [editData, setEditData] = useState({})
 
     // Sets data to be edited
+    // Toggles edit mode on
     const editEntry = (index) => {
         setEdit(prev => !prev) // Toggle mode
        const editThis = userData.entries[index]
@@ -85,6 +86,8 @@ export default function App() {
         })
     }
 
+    // Receives index of entry to be deleted
+    // Updates entries array
     const deleteEntry = (index) => {
         const oldArray = userData.entries
         oldArray.splice(index, 1)
@@ -111,6 +114,7 @@ export default function App() {
     }
 
     //onSubmit fn in edit mode
+    // Toggles edit mode off
     const saveEdit = (e) => {
         e.preventDefault()
         setEdit(prev => !prev)

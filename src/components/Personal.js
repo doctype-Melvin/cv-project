@@ -3,7 +3,7 @@ import React from "react";
 export default function Personal(props) {
 
     return (
-        <div>
+        <div className="personalDetails">
             <h2>Personal Details</h2>
             <form onSubmit={props.submit}>
                 <label htmlFor="fullname">Full Name: </label>

@@ -2,7 +2,7 @@ import React from "react";
 import Entry from "./Entry";
 
 export default function View(props) {
-    console.log(props.data)
+    // Mapper renders entries array
     const mapper = props.data.entries.map((item, index) => {
         return <Entry
             key={index}

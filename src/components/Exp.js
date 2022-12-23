@@ -4,7 +4,7 @@ export default function Exp(props) {
     // console.log(props.editData, 'Exp')
     if (!props.editSt) {
         return (
-            <div>
+            <div className="expForm">
                 <h2>CV Entries</h2>
                 <form onSubmit={props.submit}>
                 <label htmlFor="institution">Institution / Company: </label>
