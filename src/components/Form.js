@@ -13,6 +13,10 @@ export default function Form(props) {
             <Exp 
             change={props.changeExp}
             submit={props.submitExp}
+            editSt={props.editSt}
+            editData={props.editData}
+            saveData={props.saveData}
+            changeEdit={props.changeEdit}
             />
         </div>
     )

@@ -1,11 +1,13 @@
 import React from "react";
 
 export default function Entry(props){
+
     const onBtnClick = (e) => {
         e.preventDefault(e)
-        console.log(props.data[props.index])
+        props.edit(props.index)
     }
-
+    // If the edit state is true
+    // Place target obj data into form
     return (
         <div className="entryContainer">
             <div className="company">
@@ -15,7 +17,7 @@ export default function Entry(props){
             {props.role}
             </div>
             <div className="date">
-            From: {props.start} {props.end}
+            From: {props.start} Until: {props.end}
             </div>
             <div className="description">
             {props.description}
@@ -24,3 +26,4 @@ export default function Entry(props){
         </div>
     )
 }
+

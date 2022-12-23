@@ -2,7 +2,7 @@ import React from "react";
 import Entry from "./Entry";
 
 export default function View(props) {
-    console.log(props)
+    
     const mapper = props.data.entries.map((item, index) => {
         return <Entry
             key={index}
@@ -13,6 +13,8 @@ export default function View(props) {
             end={item.end}
             description={item.description}
             data={props.data.entries}
+            edit={props.editToggle}
+            editSt={props.editSt}
         />
     })
     return (
